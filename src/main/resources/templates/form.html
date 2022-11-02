@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link th:href="@{/form.css}" href="/form.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+   <h1 class="em">Sign Up</h1>
+
+<div class="container">
+  <form method="post" th:object="${employeeDto}" th:action="@{'/submit'}">
+   <input type="hidden" name="id" th:field="*{id}" />
+    <div>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Full Name" th:field="*{Ename}" />
+    </div>
+      <br>
+    <div>
+        <label for="e_dob">EMP DATE OF BIRTH</label>
+        <input id="e_dob" name="e_dob" type="text" placeholder="DATE OF BIRTH" th:field="*{Edob}" />
+    </div><br>
+    <div>
+        <label for="e_doj">EMP DATE OF JOIN</label>
+        <input id="e_doj" name="e_doj" type="text" placeholder="DATE OF JOIN" th:field="*{Edoj}" />
+    </div><br>
+    <div>
+        <label for="department_id">DEPARTMENT NAME</label>
+        <input id="department_id" name="department_id" type="text" placeholder="DEPARTMENT NAME" th:field="*{department_id}" />
+    </div><br>
+      <div>
+          <fieldset id="address" name="address" th:field="*{address}">
+              <legend>Address</legend>
+              <label for="city">City</label>
+              <input type="text" id="city" name="city" placeholder="City" th:field="*{address.city}"><br><br>
+              <label for="state">State</label>
+              <input type="text" id="state" name="state" placeholder="State" th:field="*{address.state}"><br><br>
+          </fieldset>
+      </div>
+
+    <div>
+        <label for="project">PROJECT</label>
+        <input id="project" name="project" placeholder="PROJECT" th:field="*{project_list[0].project_id}" />
+    </div><br>
+
+    <div>
+        <input id="submit" name="submit" type="submit" placeholder="Submit" />
+    </div>
+
+  </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+body{
+ background-color: #92a8d1;
+ color: #1F2041;
+ margin:2rem;
+}
+form{
+color:white;
+}
+.emm{
+  display:block;
+  text-align:center;
+  color:white;
+}
+.container{
+ height: 516px;
+
+ display: flex;
+ flex-direction: initial;
+ justify-content: center;
+ align-items: center;
+}
+input[type=text] {
+  width: 118%;
+  padding: 5px 4px;
+  margin: 6px 61px;
+  box-sizing: revert;
+  border: none;
+}
+
+

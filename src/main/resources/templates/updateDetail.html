@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> UPDATE PAGE </title>
+    <link th:href="@{/updateDetail.css}" href="/updateDetail.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1 class="emm">UPDATE DETAILS </h1>
+<div class="container" th:object="${thisEmployee}">
+  <form method="post" th:object="${employeeDto}" th:action="@{'/submitUpdate'}">
+      <div th:object="${empID}">
+          <input id="id" placeholder="ID" type="hidden" name="id" th:value="${empID}" />
+      </div><br>
+
+      <div>
+          <label for="e_name">Name</label>
+          <input id="e_name" name="e_name" type="text" placeholder="Full Name" th:value="${thisEmployee.Ename}" th:name="Ename" />
+      </div><br>
+
+      <div>
+          <label for="e_dob">EMPLOYEE DATE OF BIRTH</label>
+          <input id="e_dob" name="e_dob" type="text" placeholder="date of birth" th:value="${thisEmployee.Edob}" th:name="Edob" />
+      </div><br>
+
+      <div>
+          <label for="e_doj">EMPLOYEE DATE OF JOIN</label>
+          <input id="e_doj" name="e_doj" type="text" placeholder="date of join" th:value="${thisEmployee.Edoj}" th:name="Edoj" />
+      </div><br>
+
+      <div>
+          <label for="department">DEPARTMENT NAME</label>
+          <input id="department" name="department" text="text" placeholder="DEPARTMENT ADDRESS" th:value="${thisEmployee.department.id}" th:name="department_id"  />
+
+      </div><br>
+      <div>
+          <fieldset id="address" name="address" th:field="*{address}">
+              <legend>Address</legend>
+              <label for="city">City</label>
+              <input type="text" id="city" name="city" placeholder="City" th:value="${thisEmployee.address.city}" th:name="address.city"><br><br>
+              <label for="state">State</label>
+              <input type="text" id="state" name="state" placeholder="State" th:value="${thisEmployee.address.state}" th:name="address.state"><br><br>
+          </fieldset>
+      </div><br>
+      <div>
+         <label for="project">PROJECT</label>
+          <input id="project" name="project" text="text" placeholder="project name" th:value="${thisEmployee.projects[0].id}" th:name="project_list[0].project_id"  />
+
+      </div>
+      <div>
+
+              <input id="submit" name="submit" type="submit"  placeholder="Submit" />
+
+      </div>
+
+  </form>
+  </div>
+</body>
+</html>

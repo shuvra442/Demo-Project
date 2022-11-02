@@ -1,0 +1,66 @@
+body{
+ background-color: #92a8d1;
+ color: #1F2041;
+ margin:2rem;
+}
+form{
+color:white;
+}
+.emm{
+  display:block;
+  text-align:center;
+  color:white;
+}
+.container{
+ height: 516px;
+ border-radius: 4rem;
+ display: flex;
+ flex-direction: initial;
+ justify-content: center;
+ align-items: center;
+ background-color: black;
+ outline: 7px ridge rgba(170, 50, 220, .6);
+ outline-offset: 1.1rem;
+}
+input[type=text] {
+  width: 118%;
+  padding: 5px 4px;
+  margin: 6px 61px;
+  box-sizing: revert;
+  border: none;
+  color:black;
+}
+.multiselect {
+  width: 200px;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+  font-weight: bold;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes {
+  display: none;
+  border: 1px #dadada solid;
+}
+
+#checkboxes label {
+  display: block;
+}
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
+}
+

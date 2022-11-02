@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile image</title>
+    <link th:href="@{/profile.css}" href="/profile.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body>
+<div class="container" th:object="${empId}">
+    <div class="left" th:object="${image}">
+        <div class="p-pic">
+
+<!--            <img height="500px" width="500px" th:if="${image != null}" th:src="${'data:image/jpg;base64,'+image.profileImage}" alt="">-->
+            <iframe th:if="${image !=null}" th:src="${'data:application/pdf;base64,'+image.profileImage}"  ></iframe>
+        </div>
+    </div>
+
+    <div class="right"  th:object="${thisEmployee}">
+        <h1><u> Your Profile  </u></h1>
+<!--        <iframe src="https://trinket.io/embed/python3/f03e855da4" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>-->
+<!--        <iframe width="560" height="315" src="https://www.youtube.com/embed/oY036JqESt0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+        <h3>Ename: <span th:text="${thisEmployee.Ename}"></span></h3>
+        <h3>Date Of Birth: <span th:text="${thisEmployee.Edob}"></span></h3>
+        <h3>Date Of Joining: <span th:text="${thisEmployee.Edoj}"></span></h3>
+        <h3>City: <span th:text="${thisEmployee.address.city}"></span></h3>
+        <h3>State: <span th:text="${thisEmployee.address.state}"></span></h3>
+        <h3>Department: <span th:text="${thisEmployee.department.Dname}"></span></h3>
+        <h3>Project: <span th:text="${thisEmployee.projects[0].Pname}"></span></h3>
+
+        <div class="edit" th:object="${img}">
+<!--            <iconify-icon class="icon" icon="fa-solid:user-edit"></iconify-icon>-->
+            <form method="post" th:action="@{'/employees/about/upload'}" enctype="multipart/form-data">
+                <input type="hidden" id="id" name="id"th:field="*{id}" />
+                <input type="hidden" id="employee_id" name="employee_id" th:value="${empId}" th:name="employee_id" />
+                <input type="file" id="img" name="img"  th:field="*{profileImage}" />
+                <input type="submit" placeholder="submit" >
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

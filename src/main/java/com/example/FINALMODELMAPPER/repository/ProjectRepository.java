@@ -1,0 +1,7 @@
+package com.example.FINALMODELMAPPER.repository;
+
+import com.example.FINALMODELMAPPER.model.Project;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ProjectRepository extends JpaRepository<Project,Integer> {
+}
